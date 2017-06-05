@@ -7,7 +7,7 @@ import modelo.ModeloUsuario;
 
 public class DAOMembro {
     ConexaoBD conex = new ConexaoBD();
-    
+    //alterar aqui
     public byte registrarMembroDAO(ModeloMembro modelM, ModeloUsuario modelU){
         DAOUsuario dao = new DAOUsuario();
         byte idUsuario = dao.buscarIdUsuarioDAO(modelU);
