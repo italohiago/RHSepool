@@ -8,6 +8,7 @@ import java.io.File;
 import javax.imageio.*;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import java.lang.NullPointerException;
 /**
  *
  * @author professor
@@ -237,7 +238,7 @@ public class FormularioSolicitacao extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -476,18 +477,20 @@ public class FormularioSolicitacao extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxFormularioSemestreActionPerformed
 
     private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jRadioButton8ActionPerformed
 
     private void jButtonSelecionarImagemFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarImagemFormularioActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser=new JFileChooser();
-        chooser.showOpenDialog(null);
-        File f=chooser.getSelectedFile(); 
-        String filename=f.getAbsolutePath();
-        ImageIcon icon=new ImageIcon(filename);
-        jLabelFormularioImagem.setIcon(icon);
-    
+        chooser.showOpenDialog(null);     
+        try{
+            File f=chooser.getSelectedFile();
+            String filename=f.getAbsolutePath();
+            ImageIcon icon=new ImageIcon(filename);
+            jLabelFormularioImagem.setIcon(icon);
+        } catch(NullPointerException e){           
+        }    
     }//GEN-LAST:event_jButtonSelecionarImagemFormularioActionPerformed
 
     /**
